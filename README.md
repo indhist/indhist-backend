@@ -2,6 +2,37 @@
 
 The IndHist backend service is a RESTful API, designed to provide geographical and cultural information about India. It serves as the data source for the IndHist React Native mobile application and potentially other clients. It uses PostgreSQL for persistent data storage and Redis for caching to ensure fast and efficient data delivery.
 
+## Folder Structure
+
+```plaintext
+indhist-backend/
+├── config/
+│   └── config.js
+├── src/
+│   ├── app.js
+│   ├── components/
+│   │   ├── indexRoute.js
+│   │   └── states/
+│   │       ├── states.controller.js
+│   │       ├── states.dal.js
+│   │       ├── states.route.js
+│   │       ├── states.services.js
+│   │       └── states.validation.js
+│   ├── constants/
+│   │   └── constants.js
+├── .config/
+│   └── .env
+├── .github/
+│   └── workflows/
+│       └── create-pull-request.yml
+├── .gitignore
+├── .env.example
+├── package.json
+├── README.md
+├── server.js
+```
+
+
 ## Features
 
 *   **State-Wise Information:** Provides comprehensive details about each state and union territory in India, including geographical features, cultural sites, and tourist attractions.
