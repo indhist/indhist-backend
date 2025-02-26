@@ -1,35 +1,35 @@
-name: CI/CD Pipeline
+name: Create Pull Request
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - '*'
+    tags-ignore:
+      - '*'
 
 jobs:
-  build:
+  create-pull-request:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      
+
       - name: Install dependencies
         run: npm install
-      
-      - name: Run tests
-        run: npm test
 
-      - name: Deploy (example)
-        run: |
-          echo "Deploying..."
-          # Deployment commands here
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automated pull request
+          branch: ${{ github.ref_name }}
+          base: dev
+          title: 'Automated Pull Request'
+          body: |
+            This is an automated pull request created by GitHub Actions.
