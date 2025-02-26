@@ -1,2 +1,2 @@
 # Assigning code ownership
-/indhist-backend/ @ajha417
+/indhist-backend/ @indhist @guptaaashutosh @ajha417
