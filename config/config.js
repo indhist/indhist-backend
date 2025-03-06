@@ -7,6 +7,8 @@ require('dotenv-safe').config({
 
 module.exports = {
   port: process.env.PORT,
+  discordWebHookURL: process.env.DISCORD_WEBHOOK_URL,
+  discordLogEnable: process.env.ENABLED_DISCORD_ERROR,
   dbConfig: {
     DB_HOST: process.env.DB_HOST,
     DB_POST: process.env.DB_PORT,
